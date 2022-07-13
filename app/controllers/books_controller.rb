@@ -7,11 +7,15 @@ class BooksController < ApplicationController
      @books = Book.all
   end
   
+   #バリデーションの実装
   def create
     book = Book.new(book_params)
-    book.save
-    redirect_to book_path(book.id)
+    if book.save
+      redirect_to book_path(@book.id)
+    else
+      render :new
   end
+end
 
   def show
      @book = Book.find(params[:id])
