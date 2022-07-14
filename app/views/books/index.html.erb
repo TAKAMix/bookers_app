@@ -31,7 +31,9 @@
     </table>
     
     <h2>New book</h2>
+    
     <!--バリデーションの実装-->
+  <div id="error_explanation">
     <% if @book.errors.any? %>
     <%= @book.errors.count %>errors prohibited this book from being saved:
   <ul>
@@ -39,6 +41,7 @@
       <li><%= message %></li>
     <% end %>
   </ul>
+  </div>
   <% end %>
     
       <%= form_with model: @book do |f| %>
@@ -55,5 +58,6 @@
       <label><%= f.submit 'Create Book' %></label>
     </div>
 	 <% end %>
+	 
 	</body>
 </html>
